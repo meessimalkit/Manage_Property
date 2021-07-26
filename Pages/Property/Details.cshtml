@@ -1,0 +1,43 @@
+﻿@page
+@model Manage_Property.Pages.Property.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Properties</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Properties.Property_Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Properties.Property_Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Properties.Area)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Properties.Area)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Properties.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Properties.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Properties.Facilities)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Properties.Facilities)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Properties.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

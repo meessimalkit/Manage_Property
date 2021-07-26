@@ -1,0 +1,65 @@
+﻿@page
+@model Manage_Property.Pages.Dealers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    h1 {
+        text-align: center
+    }
+</style>
+
+<h1>All Dealers</h1>
+<!--paragraph which shows in dealer detail table-->
+
+<p>This page holding the information about Deler who sold the propert to customers and also give the property buyers to owners. If you need to add any new Dealer you can use this page.</p>
+
+<p>
+    <a asp-page="Create">Click for add new Dealer</a>
+</p>
+<!--all are labels in dealer detail table-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Dealer Name
+            </th>
+            <th>
+                Dealer Address
+            </th>
+            <th>
+                Phone No.
+            </th>
+            <th>
+                Email Address
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Dealer)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dealer_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dealer_Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

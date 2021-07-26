@@ -1,0 +1,66 @@
+﻿@page
+@model Manage_Property.Pages.Property.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<style>
+    h1 {
+        text-align: center
+    }
+</style>
+<!--head tag for property detail page-->
+<h1> All Properties</h1>
+
+<!--paragrapg which shows in property detail page-->
+<p>This is a page for all the information about properties which is available on this website including the acctual price of property which declairs by owners.</p>
+
+<p>
+    <a asp-page="Create">Click to add new property</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Property Type
+            </th>
+            <th>
+                Property Area
+            </th>
+            <th>
+                Price Of Property
+            </th>
+            <th>
+                Facilities
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Properties)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Property_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Facilities)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

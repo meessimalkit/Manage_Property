@@ -1,0 +1,43 @@
+﻿@page
+@model Manage_Property.Pages.Auctions.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Auction</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Auction.Bid_Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Auction.Bid_Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Auction.Property_Detail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Auction.Property_Detail.Area)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Auction.Customer_Detail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Auction.Customer_Detail.Customer_Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Auction.Dealer_Detail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Auction.Dealer_Detail.Dealer_Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Auction.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

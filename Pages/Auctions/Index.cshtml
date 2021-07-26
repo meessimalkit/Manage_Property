@@ -1,0 +1,64 @@
+﻿@page
+@model Manage_Property.Pages.Auctions.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    h1 {
+        text-align: center
+    }
+</style>
+<h1>All Aucations</h1>
+<!--head tag for property detail page-->
+
+<!--paragrapg which shows in property detail page-->
+<p>This is a page for all the information about Auctions which is available on this website including the acctual price of property which declairs by owners.</p>
+
+<p>
+    <a asp-page="Create">Click to add new Auction</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Auction[0].Bid_Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Auction[0].Property_Detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Auction[0].Customer_Detail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Auction[0].Dealer_Detail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Auction)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bid_Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Property_Detail.Area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer_Detail.Customer_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dealer_Detail.Dealer_Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
